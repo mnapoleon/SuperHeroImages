@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SuperHeroImages</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_dcletter">DCLetterActivity</string>
+    <string name="title_activity_superhero_image">SuperheroImageActivity</string>
+</resources>
