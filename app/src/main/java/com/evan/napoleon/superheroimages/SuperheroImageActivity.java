@@ -1,6 +1,7 @@
 package com.evan.napoleon.superheroimages;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,6 +10,9 @@ import android.widget.ImageView;
 
 import com.evan.napoleon.superheroimages.utils.SuperheroUrlUtils;
 import com.loopj.android.image.SmartImageView;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 
 public class SuperheroImageActivity extends ActionBarActivity {
@@ -22,31 +26,82 @@ public class SuperheroImageActivity extends ActionBarActivity {
         Intent intent = getIntent();
         String message = intent.getStringExtra(DCLetterActivity.EXTRA_MESSAGE);
 
-        //ImageView imageView = (ImageView)this.findViewById(R.id.superhero_image_placeholder);
-        SmartImageView imageView = (SmartImageView)this.findViewById(R.id.superhero_image_placeholder);
-        imageView.setImageUrl(SuperheroUrlUtils.getUrlForLetter(message));
+        InputStream inputstream;
 
-        /*if (message.equals("A")) {
-            imageView.setImageResource(R.drawable.aquaman);
+        ImageView imageView = (ImageView)this.findViewById(R.id.superhero_image_placeholder);
+        //SmartImageView imageView = (SmartImageView)this.findViewById(R.id.superhero_image_placeholder);
+        //imageView.setImageUrl(SuperheroUrlUtils.getUrlForLetter(message));
+
+        if (message.equals("A")) {
+            try {
+                inputstream = getApplicationContext().getAssets().open("dc/aquaman.jpg");
+                Drawable drawable = Drawable.createFromStream(inputstream, null);
+                imageView.setImageDrawable(drawable);
+            }
+            catch (Exception e) {
+
+            }
         }
         else if (message.equals("B")) {
-            imageView.setImageResource(R.drawable.batman);
+            try {
+                inputstream = getApplicationContext().getAssets().open("dc/batman.jpg");
+                Drawable drawable = Drawable.createFromStream(inputstream, null);
+                imageView.setImageDrawable(drawable);
+            }
+            catch (Exception e) {
+
+            }
         }
         else if (message.equals("F")) {
-            imageView.setImageResource(R.drawable.flash);
+            try {
+                inputstream = getApplicationContext().getAssets().open("dc/flash.jpg");
+                Drawable drawable = Drawable.createFromStream(inputstream, null);
+                imageView.setImageDrawable(drawable);
+            }
+            catch (Exception e) {
+
+            }
         }
         else if (message.equals("G")) {
-            imageView.setImageResource(R.drawable.green_lantern);
+            try {
+                inputstream = getApplicationContext().getAssets().open("dc/green_lantern.jpg");
+                Drawable drawable = Drawable.createFromStream(inputstream, null);
+                imageView.setImageDrawable(drawable);
+            }
+            catch (Exception e) {
+
+            }
         }
         else if (message.equals("M")) {
-            imageView.setImageResource(R.drawable.martian_manhunter);
+            try {
+                inputstream = getApplicationContext().getAssets().open("dc/martian_manhunter.jpg");
+                Drawable drawable = Drawable.createFromStream(inputstream, null);
+                imageView.setImageDrawable(drawable);
+            }
+            catch (Exception e) {
+
+            }
         }
         else if (message.equals("S")) {
-            imageView.setImageResource(R.drawable.superman);
+            try {
+                inputstream = getApplicationContext().getAssets().open("dc/superman.jpg");
+                Drawable drawable = Drawable.createFromStream(inputstream, null);
+                imageView.setImageDrawable(drawable);
+            }
+            catch (Exception e) {
+
+            }
         }
         else {
-            imageView.setImageResource(R.drawable.joker1);
-        }*/
+            try {
+                inputstream = getApplicationContext().getAssets().open("dc/joker1.jpg");
+                Drawable drawable = Drawable.createFromStream(inputstream, null);
+                imageView.setImageDrawable(drawable);
+            }
+            catch (Exception e) {
+
+            }
+        }
 
     }
 
