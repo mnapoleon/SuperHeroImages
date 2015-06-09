@@ -1,12 +1,14 @@
 package com.evan.napoleon.superheroimages;
 
 import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+
+import com.evan.napoleon.superheroimages.utils.SuperheroUrlUtils;
+import com.loopj.android.image.SmartImageView;
 
 
 public class SuperheroImageActivity extends ActionBarActivity {
@@ -20,10 +22,11 @@ public class SuperheroImageActivity extends ActionBarActivity {
         Intent intent = getIntent();
         String message = intent.getStringExtra(DCLetterActivity.EXTRA_MESSAGE);
 
-        ImageView imageView = (ImageView)this.findViewById(R.id.superhero_image_placeholder);
-        
+        //ImageView imageView = (ImageView)this.findViewById(R.id.superhero_image_placeholder);
+        SmartImageView imageView = (SmartImageView)this.findViewById(R.id.superhero_image_placeholder);
+        imageView.setImageUrl(SuperheroUrlUtils.getUrlForLetter(message));
 
-        if (message.equals("A")) {
+        /*if (message.equals("A")) {
             imageView.setImageResource(R.drawable.aquaman);
         }
         else if (message.equals("B")) {
@@ -43,7 +46,7 @@ public class SuperheroImageActivity extends ActionBarActivity {
         }
         else {
             imageView.setImageResource(R.drawable.joker1);
-        }
+        }*/
 
     }
 
