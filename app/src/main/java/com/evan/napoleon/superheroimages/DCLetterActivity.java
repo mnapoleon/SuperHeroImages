@@ -11,12 +11,17 @@ import android.widget.Button;
 
 public class DCLetterActivity extends ActionBarActivity {
 
-    public final static String EXTRA_MESSAGE = "com.evan.napoleon.superheroimages.MESSAGE";
+    public final static String LETTER_MESSAGE = "com.evan.napoleon.superheroimages.LETTERMESSAGE";
+
+    String setMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dcletter);
+
+        Intent intent = getIntent();
+        setMessage = intent.getStringExtra(CharacterPickerActivity.SET_MESSAGE);
     }
 
     @Override
@@ -46,7 +51,8 @@ public class DCLetterActivity extends ActionBarActivity {
         String buttonText = button.getText().toString();
 
         Intent intent = new Intent(this, SuperheroImageActivity.class);
-        intent.putExtra(EXTRA_MESSAGE, buttonText);
+        intent.putExtra(LETTER_MESSAGE, buttonText);
+        intent.putExtra(CharacterPickerActivity.SET_MESSAGE, setMessage);
         startActivity(intent);
     }
 }

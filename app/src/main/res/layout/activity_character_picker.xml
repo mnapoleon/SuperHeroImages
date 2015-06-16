@@ -28,7 +28,8 @@
         android:layout_height="150dp"
         android:src="@drawable/marvel_logo"
         android:scaleType="fitCenter"
-        android:layout_marginLeft="4dp"/>
+        android:layout_marginLeft="4dp"
+        android:onClick="dcSelect"/>
     </LinearLayout>
 
 </RelativeLayout>

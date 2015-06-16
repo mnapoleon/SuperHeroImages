@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 
 
 public class CharacterPickerActivity extends ActionBarActivity {
+
+    public final static String SET_MESSAGE = "com.evan.napoleon.superheroimages.SETMESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +41,23 @@ public class CharacterPickerActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void dcSelect(View View) {
+    public void dcSelect(View view) {
+        ImageButton button = (ImageButton) view;
+
+        String buttonValue;
+        if (button.getId() == R.id.dc_button) {
+            buttonValue = "dc";
+        }
+        else if (button.getId() == R.id.marvel_button) {
+            buttonValue = "marvel";
+        }
+        else {
+            buttonValue = "";
+        }
+
         Intent intent = new Intent(this, DCLetterActivity.class);
+        intent.putExtra(SET_MESSAGE, buttonValue);
+
         startActivity(intent);
     }
 }

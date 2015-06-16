@@ -20,7 +20,8 @@ public class SuperheroImageActivity extends ActionBarActivity {
         setContentView(R.layout.activity_superhero_image);
 
         Intent intent = getIntent();
-        String message = intent.getStringExtra(DCLetterActivity.EXTRA_MESSAGE);
+        String message = intent.getStringExtra(DCLetterActivity.LETTER_MESSAGE);
+        String setMessage = intent.getStringExtra(CharacterPickerActivity.SET_MESSAGE);
 
         InputStream inputstream;
 
@@ -29,7 +30,7 @@ public class SuperheroImageActivity extends ActionBarActivity {
         //imageView.setImageUrl(SuperheroUrlUtils.getUrlForLetter(message));
 
         try {
-            inputstream = getApplicationContext().getAssets().open("dc/"+ message.toLowerCase() + ".jpg");
+            inputstream = getApplicationContext().getAssets().open(setMessage + "/"+ message.toLowerCase() + ".jpg");
             if (inputstream != null) {
                 Drawable drawable = Drawable.createFromStream(inputstream, null);
                 imageView.setImageDrawable(drawable);
